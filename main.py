@@ -52,11 +52,14 @@ SUBSTITUTION:
 
 """
 
-# Import re and pyperclip
 
+# Import re and pyperclip
+import re
+import pyperclip
 
 # Get text from clipboard
 # pyperclip.paste() will be the text in your clipboard
+
 
 
 # Search for phone numbers + emails
