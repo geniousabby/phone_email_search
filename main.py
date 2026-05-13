@@ -1,3 +1,4 @@
+
 """
 Phone number and email searcher.
 
@@ -59,8 +60,7 @@ import pyperclip
 
 # Get text from clipboard
 # pyperclip.paste() will be the text in your clipboard
-
-
+text = pyperclip.paste()
 
 # Search for phone numbers + emails
 
