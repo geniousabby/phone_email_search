@@ -71,3 +71,4 @@ emails = email_regex.findall(text)
 
 # Replace text in keyboard with found phone numbers and email
 # pyperclip.copy() will put the new text back onto the clipboard
+pyperclip.copy('\n'.join(phone_numbers + emails))
