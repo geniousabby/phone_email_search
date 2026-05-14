@@ -1,58 +1,7 @@
-
-"""
+r"""
 Phone number and email searcher.
 
-
-
-REGEX IN PYTHON:
-	Regex can be used in many different languages and in any situation where you need to search for or validate certain patterns of text and is included in the search capabilities of many pieces of software.
-	Regex in Python is "greedy" by default (will select the longest string in ambiguous situations)
-	Use "?" to make it "non-greedy"
-
-BASIC FUNCTIONS AND OPERATORS:
-	import re
-	re.compile()
-	.search()
-	.group()
-	Grouping with parentheses()
-	Matching with Pipe | (OR)
-	? matches zero or one of the preceding group
-	* matches zero or more of the preceding group
-	+ matches one or more of the preceding group
-	{n} matches exactly n of the preceding group
-	{n,} matches n or more of the preceding group
-	{,m} matches 0 to m of the preceding group
-	{n,m} matches at least n and at most m of the preceding group
-	{n,m}? or *? or +? performs a nongreedy match of the preceding group
-	.findall() for returning every match (not just the first one)
-
-CHARACTER CLASSES:
-	\d = 0-9
-	\D = not \d
-	\w = letter, numeric, or _
-	\W = not \w
-	\s = space, tab, newline
-	\S = not \s
-	[abcde] or [^abcde] (^ is the opposite)
-
-START OR END:
-	^ = begins with eg. re.compile(r'^Hello') means the text has to begin with 'Hello'
-	$ = ends with eg. re.compile(r'\d$') means the text has to end with a digit
-	Begin AND end with: eg. re.compile(r'^\d$') means it has to begin and end with a digit
-
-WILDCARD:
-	. = anything (except newline)
-	.* = anything
-
-IGNORE CASE:
-	re.compile(r'mickey mouse', re.I) will search for Mickey Mouse but ignore the case
-
-SUBSTITUTION:
-	Regex can find and replace using regex.sub([what to replace with], [the string])
-
-
 """
-
 
 # Import re and pyperclip
 import re
@@ -63,12 +12,17 @@ import pyperclip
 text = pyperclip.paste()
 
 # Search for phone numbers + emails
-phone_regex = re.compile(r'\d{3}-\d{3}-\d{4}') # This compiles a regex pattern for phone numbers in the format 123-456-7890
-email_regex = re.compile(r'\w+@\w+\.\w+') # This compiles a regex pattern for email addresses in the format user@domain.extension
+phone_regex = re.compile(r'\d{3}-\d{3}-\d{4}')  # This compiles a regex pattern for phone numbers in the format 123-456-7890
+email_regex = re.compile(r'\w+@\w+\.\w+')  # This compiles a regex pattern for email addresses in the format user@domain.extension
 
-phone_numbers = phone_regex.findall(text) # This finds anything with the phone number pattern in the text and returns them as a list
-emails = email_regex.findall(text) # This finds anything with the email pattern in the text and returns them as a list
+phone_numbers = phone_regex.findall(text)  # This finds anything with the phone number pattern in the text and returns them as a list
+emails = email_regex.findall(text)  # This Finds anything with the email pattern in the text and returns them as a list
 
 # Replace text in keyboard with found phone numbers and email
 # pyperclip.copy() will put the new text back onto the clipboard
-pyperclip.copy('\n'.join(phone_numbers + emails))
+results = ('\n'.join(phone_numbers + emails))
+
+pyperclip.copy(results)
+
+print('Copied to clipboard:')
+print(results)
