@@ -1,4 +1,5 @@
-r"""
+
+"""
 Phone number and email searcher.
 
 """
